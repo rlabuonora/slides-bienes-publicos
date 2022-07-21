@@ -15,8 +15,8 @@ output:
 ```{r setup, include=FALSE}
 options(htmltools.dir.version = FALSE)
 knitr::opts_chunk$set(
-  fig.width=6, fig.height=3.5, fig.retina=3,
-  out.width = "100%",
+  fig.width=5, fig.height=3.5, fig.retina=3,
+  out.width = "70%",
   cache = FALSE,
   echo = FALSE,
   message = FALSE, 
@@ -32,7 +32,7 @@ library(showtext)
 library(purrr)
 font_add_google("Lato", "Lato")
 font_add_google("Merriweather", "Merriweather")
-theme_set(theme_minimal(base_family = 'Lato', base_size=16))
+theme_set(theme_minimal(base_family = 'Lato', base_size=8))
 source(here::here('utils.R'))
 
 ```
@@ -148,20 +148,27 @@ msb_fun <- splinefun(msb_df$x, msb_df$y)
 
 ggplot(data.frame(x=0, y=0)) + 
   geom_function(fun=msc_fun, xlim=c(0, 5.5)) +
-  annotate("text", y=1.25, x=6, size=7, label="BMS") +
+  annotate("text", y=1.25, x=6,
+           size=4, 
+           label="BMS") +
   geom_function(fun=msb_fun, xlim=c(0, 5.5)) +
-  annotate("text", y=3.8, x=6, size=7, label="CMS") +
+  annotate("text", y=3.8, x=6, 
+           size=4, 
+           label="CMS") +
   geom_vline(xintercept = 0) +
   geom_hline(yintercept = 0) +
   scale_x_continuous(limits = c(0, 6)) + 
   marcar_punto(0, 0) +
-  annotate("text", y=.9, x=1.5, size=7, label="Eq. Privado") +
+  annotate("text", y=.9, x=1.5, 
+           size=4,
+           label="Eq. Privado") +
   annotate(
     geom = "curve", x = .75, y = .7, xend = .1, yend = .1, 
     curvature = .1, arrow = arrow(length = unit(2, "mm"))
   ) +
   marcar_punto(3, 2.5) +
-  annotate("text", y=3.8, x=4, size=7, label="Eq. Eficiente") +
+  annotate("text", y=3.8, x=4, #size=7, 
+           label="Eq. Eficiente") +
   annotate(
     geom = "curve", 
     x = 3.5, y = 3.5, 
