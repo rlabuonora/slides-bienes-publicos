@@ -167,7 +167,7 @@ ggplot(data.frame(x=0, y=0)) +
     curvature = .1, arrow = arrow(length = unit(2, "mm"))
   ) +
   marcar_punto(3, 2.5) +
-  annotate("text", y=3.8, x=4, #size=7, 
+  annotate("text", y=3.8, x=4, size=4, 
            label="Eq. Eficiente") +
   annotate(
     geom = "curve", 
@@ -196,7 +196,7 @@ blockquote {
   margin-top: 4em;
 }
 </style>
-> <p>Los estudiosos de la Guerra Fría saben que, para impedir una posible agresión soviética, Estados Unidos colocó un “paraguas estratégico” sobre la Europa de la OTAN y Japón, declarando que lucharía si la Unión Soviética amenazaba la indepen- dencia de estos países. Los aliados europeos y japoneses han obtenido un provecho económico del hecho de que Estados Unidos suministraba la mayor parte de su seguridad nacional.</p>
+> <p>Los estudiosos de la Guerra Fría saben que, para impedir una posible agresión soviética, Estados Unidos colocó un “paraguas estratégico” sobre la Europa de la OTAN y Japón, declarando que lucharía si la Unión Soviética amenazaba la independencia de estos países. Los aliados europeos y japoneses han obtenido un provecho económico del hecho de que Estados Unidos suministraba la mayor parte de su seguridad nacional.</p>
 <p>
 Durante el mandato del presidente Ronald Reagan, aproximadamente 6 por ciento del PIB de Estados Unidos se invertía en defensa, en tanto que los europeos gastaban en este rubro sólo 2 a 3 por ciento y los japoneses un miserable 1 por ciento, aunque todos enfrentaban un enemigo común. </p>
 <p>Por lo tanto, el contribuyente estadounidense soportaba una carga desproporcionada en el gasto general de defensa, en tanto que los que se cobijaban bajo su paraguas invertían más en bienes públicos o de consumo, o ahorraban; mientras, Estados Unidos se endeudaba cada vez más. Actualmente, Estados Unidos, al igual que Roma y Gran Bretaña en su época, es el proveedor de bienes públicos internacionales.</p>
@@ -236,9 +236,9 @@ msb_fun <- splinefun(msb_df$x, msb_df$y)
 
 ggplot(data.frame(x=0, y=0)) + 
   geom_function(fun=mpb_fun, xlim=c(0, 24)) +
-  annotate("text", y=5, x=28, size=7, label="BMP") +
+  annotate("text", y=5, x=28, size=4, label="BMP") +
   geom_function(fun=msb_fun, xlim=c(5, 24)) +
-  annotate("text", y=15, x=28, size=7, label="BMS") +
+  annotate("text", y=15, x=28, size=4, label="BMS") +
   geom_vline(xintercept = 0) +
   geom_hline(yintercept = 0) +
   scale_x_continuous(limits = c(0, 30)) + 
@@ -272,11 +272,11 @@ msc_fun <- splinefun(msc_df$x, msc_df$y)
 
 plt <- ggplot(data.frame(x=0, y=0)) + 
   geom_function(fun=mpb_fun, xlim=c(0, 24)) +
-  annotate("text", y=5, x=28, size=5, label="BMP") +
+  annotate("text", y=5, x=28, size=4, label="BMP") +
   geom_function(fun=msb_fun, xlim=c(5, 24)) +
-  annotate("text", y=15, x=28, size=5, label="BMS") +
+  annotate("text", y=15, x=28, size=4, label="BMS") +
   geom_function(fun=msc_fun, xlim=c(0, 24)) +
-  annotate("text", y=35, x=28, size=5, label="MSC") +
+  annotate("text", y=35, x=28, size=4, label="MSC") +
   geom_vline(xintercept = 0) +
   geom_hline(yintercept = 0) +
   scale_x_continuous(limits = c(0, 30),
@@ -361,9 +361,9 @@ curvas <- list(
 p1 <- data.frame(x=0, y=0) %>% 
   ggplot(aes(x, y)) + 
   geom_function(fun=curvas$cmg_soc, xlim=c(0, 7)) +
-  annotate("text", y=1800, x=8.5, size=6, label="CMG Social") +
+  annotate("text", y=1800, x=8.5, size=4, label="CMG Social") +
   geom_function(fun=curvas$cmg_priv, xlim=c(0, 8)) +
-  annotate("text", y=1300, x=8.5, size=6, label="CMG Privado") +
+  annotate("text", y=1300, x=8.5, size=4, label="CMG Privado") +
   scale_x_continuous(breaks=seq(0, 10, by=2),
                      limits=c(0, 10)) +
   scale_y_continuous(breaks=seq(0, 2000, by=200),
@@ -387,7 +387,7 @@ p1
 ```{r}
 p2 <- p1 + 
   geom_function(fun=curvas$demanda, xlim=c(0, 8)) +
-  annotate("text", y=750, x=8, size=6, label="Demanda")
+  annotate("text", y=750, x=8, size=4, label="Demanda")
 
 p2 +
   marcar_punto(6, 1000) +
